@@ -1,0 +1,240 @@
+/* Reset some default browser styles */
+body, h1, a, p {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+}
+
+/* Style the navigation bar */
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    padding: 15px 0;
+}
+
+.navbar a {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Style the hero image */
+.hero-image {
+    background-image: url('img1.png');
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.hero-text {
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: black;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.cta-text {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Style the call to action buttons */
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.cta-button {
+    display: inline-block;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.cta-button.facebook {
+    background-color: #1877F2;
+    color: white;
+}
+
+.cta-button.facebook:hover {
+    background-color: #145C9E;
+}
+
+.cta-button.instagram {
+    background-color: #E4405F;
+    color: white;
+}
+
+.cta-button.instagram:hover {
+    background-color: #D32D61;
+}
+
+.centered-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 100px;
+}
+
+.resizable-image {
+    max-width: 50%;
+    height: auto;
+}
+
+.full-plan-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button {
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.full-screen-image {
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+#image-1 {
+    background-image: url('img3.png');
+}
+
+#image-2 {
+    background-image: url('img4.png');
+}
+
+#image-3 {
+    background-image: url('img5.png');
+}
+
+#image-4 {
+    background-image: url('img6.png');
+}
+
+#image-5 {
+    background-image: url('img9.png');
+}
+
+.text-box {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40%;
+    padding: 2rem;
+    background-color: rgba(128, 128, 128, 0.7);
+    color: #fff;
+}
+
+.left-aligned {
+    left: 10%;
+}
+
+.right-aligned {
+    right: 10%;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .navbar a {
+        font-size: 18px;
+    }
+
+    .hero-text h1 {
+        font-size: 36px;
+    }
+
+    .cta-text {
+        font-size: 18px;
+    }
+
+    .cta-button {
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+
+    .centered-image {
+        margin-top: 50px;
+    }
+
+    .resizable-image {
+        max-width: 80%;
+    }
+
+    .text-box {
+        width: 80%;
+    }
+
+    .left-aligned {
+        left: 5%;
+    }
+
+    .right-aligned {
+        right: 5%;
+    }
+}
+.email-banner {
+    display: none;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px 40px;
+    border-radius: 8px;
+    color: #000;
+    text-decoration: none;
+}
+
+.email-id {
+    display: block;
+    font-size: 18px;
+    margin-top: 10px;
+    color: #000;
+}
+
+@media screen and (max-width: 768px) {
+    .contact-form {
+        display: none;
+    }
+
+    .email-banner {
+        display: block;
+    }
+}

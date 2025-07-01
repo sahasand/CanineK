@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9RWXX5XV4W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9RWXX5XV4W');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contact-form.css">
+    <title>Canine Kingdom Co - Contact</title>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="our-story.html">Our Story</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="contact-bg" style="background-image: url('contact-bg.png'); background-size: cover; background-position: center; height: 100vh;">
+        <form action="send_email.php" method="post" class="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="comment">Comment:</label>
+            <textarea id="comment" name="comment" required></textarea>
+            
+            <input type="submit" value="Submit">
+        </form>
+        <div class="email-banner">
+            <a href="mailto:info@caninek.com">Email Us</a>
+            <span class="email-id">info@caninek.com</span>
+        </div>
+    </div>
+</body>
+</html>
