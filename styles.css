@@ -413,7 +413,7 @@ section {
 
     .full-screen-image {
         background-attachment: scroll;
-        padding: 1rem;
+        padding: 0;
         min-height: 100vh;
         display: flex;
         align-items: center;
