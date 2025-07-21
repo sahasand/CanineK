@@ -1,92 +1,209 @@
-/* Reset some default browser styles */
-body, h1, a, p {
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* CSS Custom Properties */
+:root {
+    --primary-color: #8B4513;
+    --secondary-color: #DEB887;
+    --accent-color: #FF6B35;
+    --text-light: #ffffff;
+    --text-dark: #2c2c2c;
+    --gradient-primary: linear-gradient(135deg, #FF6B35, #F7931E);
+    --gradient-secondary: linear-gradient(135deg, #8B4513, #DEB887);
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.15);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Reset and smooth scrolling */
+html {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+body, h1, h2, a, p {
     margin: 0;
     padding: 0;
     text-decoration: none;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-dark);
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
 
-/* Style the navigation bar */
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* Enhanced navigation bar */
 .navbar {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: white;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: var(--transition-smooth);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(25px) saturate(200%);
+    -webkit-backdrop-filter: blur(25px) saturate(200%);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
 }
 
 .navbar a {
-    color: black;
+    color: var(--text-dark);
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    transition: var(--transition-smooth);
+    padding: 8px 16px;
+    border-radius: 20px;
 }
 
-/* Style the hero image */
+.navbar a:hover {
+    color: var(--accent-color);
+    background-color: rgba(255, 107, 53, 0.1);
+    transform: translateY(-2px);
+}
+
+.navbar a.active {
+    background: var(--gradient-primary);
+    color: var(--text-light);
+    box-shadow: var(--shadow-light);
+}
+
+/* Enhanced hero image with parallax effect */
 .hero-image {
     background-image: url('img1.png');
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-text {
-    position: absolute;
-    bottom: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     text-align: center;
-    color: black;
+    color: var(--text-dark);
+    max-width: 800px;
+    padding: 2rem;
+    background: transparent;
+    animation: fadeInUp 1s ease-out;
 }
 
 .hero-text h1 {
-    font-size: 48px;
-    font-weight: bold;
-    margin-bottom: 15px;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.5);
 }
 
 .cta-text {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+    text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.8), -1px -1px 4px rgba(255, 255, 255, 0.8);
 }
 
-/* Style the call to action buttons */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Enhanced call to action buttons */
 .social-buttons {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .cta-button {
-    display: inline-block;
-    font-weight: bold;
-    padding: 12px 24px;
-    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    padding: 14px 28px;
+    border-radius: 50px;
     text-align: center;
+    transition: var(--transition-bounce);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-light);
+    position: relative;
+    overflow: hidden;
+    min-width: 180px;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.cta-button:hover::before {
+    left: 100%;
 }
 
 .cta-button.facebook {
-    background-color: #1877F2;
+    background: linear-gradient(135deg, #1877F2, #0866d3);
     color: white;
 }
 
 .cta-button.facebook:hover {
-    background-color: #145C9E;
+    background: linear-gradient(135deg, #0866d3, #064a9e);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(24, 119, 242, 0.3);
 }
 
 .cta-button.instagram {
-    background-color: #E4405F;
+    background: linear-gradient(135deg, #E4405F, #C13584, #833AB4);
     color: white;
 }
 
 .cta-button.instagram:hover {
-    background-color: #D32D61;
+    background: linear-gradient(135deg, #C13584, #833AB4, #5B4FE9);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(228, 64, 95, 0.3);
 }
 
 .centered-image {
@@ -122,7 +239,18 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure first section starts at top */
+.full-screen-image:first-of-type {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }
 
 #image-1 {
@@ -146,13 +274,45 @@ body {
 }
 
 .text-box {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     width: 40%;
-    padding: 2rem;
-    background-color: rgba(128, 128, 128, 0.7);
-    color: #fff;
+    max-width: 500px;
+    padding: 2.5rem;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    color: var(--text-dark);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.text-box.animate {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.text-box h2 {
+    color: var(--primary-color);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.text-box p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.text-box .cta-button {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    padding: 12px 24px;
+    min-width: auto;
 }
 
 .left-aligned {
@@ -163,47 +323,134 @@ body {
     right: 10%;
 }
 
-/* Responsive styles */
+/* Single-page scroll enhancements */
+body {
+    scroll-behavior: smooth;
+}
+
+.section {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove gaps between story sections */
+#story {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block;
+}
+
+#story .full-screen-image:last-child {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Ensure services section connects seamlessly */
+#services {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    display: block;
+}
+
+/* Reset any default margins on sections */
+section {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block;
+    vertical-align: top;
+}
+
+/* Mobile optimizations and responsive design */
 @media screen and (max-width: 768px) {
     body {
-        font-size: 14px;
+        font-size: 16px;
+        padding-top: 70px;
+    }
+
+    .navbar {
+        padding: 12px 1rem;
+        background: rgba(255, 255, 255, 0.35);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
     }
 
     .navbar a {
-        font-size: 18px;
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+
+    .hero-image {
+        background-attachment: scroll;
+        padding: 1rem;
+    }
+
+    .hero-text {
+        padding: 1.5rem;
+        max-width: 100%;
+        margin: 0 auto;
     }
 
     .hero-text h1 {
-        font-size: 36px;
+        font-size: clamp(2rem, 8vw, 3rem);
     }
 
     .cta-text {
-        font-size: 18px;
+        font-size: clamp(1rem, 4vw, 1.2rem);
     }
 
     .cta-button {
         font-size: 14px;
-        padding: 10px 16px;
+        padding: 12px 20px;
+        min-width: 150px;
     }
 
-    .centered-image {
-        margin-top: 50px;
+    .social-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
     }
 
-    .resizable-image {
-        max-width: 80%;
+    .full-screen-image {
+        background-attachment: scroll;
+        padding: 1rem;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .text-box {
-        width: 80%;
+        width: 90%;
+        max-width: 100%;
+        padding: 1.5rem;
+        position: static;
+        transform: none;
+        margin: 0 auto;
     }
 
-    .left-aligned {
-        left: 5%;
-    }
-
+    .left-aligned,
     .right-aligned {
-        right: 5%;
+        left: auto;
+        right: auto;
+        position: static;
+    }
+
+    .text-box h2 {
+        font-size: clamp(1.3rem, 5vw, 1.8rem);
+    }
+
+    .text-box p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .centered-image {
+        margin-top: 30px;
+    }
+
+    .resizable-image {
+        max-width: 90%;
     }
 }
 .email-banner {
