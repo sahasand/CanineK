@@ -275,7 +275,9 @@ function initializeParallax() {
             const elementTop = element.offsetTop;
             const distance = scrolled - elementTop;
             let yPos = -(distance * speed);
-            yPos = Math.max(yPos, -element.offsetHeight);
+            const maxOffset = 0;
+            const minOffset = -element.offsetHeight;
+            yPos = Math.min(Math.max(yPos, minOffset), maxOffset);
             element.style.transform = `translate3d(0, ${yPos}px, 0)`;
         });
 
